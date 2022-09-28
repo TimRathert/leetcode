@@ -10,5 +10,9 @@
 
 def climbStairs(n):
     steps = 0
-    for idx,num in range(1, n):
+    arr = [1,1]
+    for idx,num in enumerate(range(2, n+1)):
+        arr.append(arr[num-1]+arr[num-2])
+    return arr[-1]
 
+print(climbStairs(6))
