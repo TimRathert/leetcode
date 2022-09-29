@@ -29,15 +29,15 @@ def merge_dictionaries(*data):
 #print(merge_dictionaries({}, {'a': 1}))
 #print(merge_dictionaries({'a': 1, 'b': 2, 'c': 3}, {'d': 4}))
 
+# This is mine
+# Too clunky tbh. Alyssa's is MUCH more lean. 
 def prime_factors(num):
     if num < 1:
         return "Number must be greater than 1"
     numArr = [num]
     def divider(numArr):
-        #print(numArr)
         for val in numArr:
-            for factor in range(2,int(val/2), 1):
-                #print(factor, val)
+            for factor in range(2,int(val/2)+1, 1):
                 if int(val/2) < 2:
                     pass
                 elif (val % factor == 0 and val != factor):
@@ -48,6 +48,19 @@ def prime_factors(num):
     divider(numArr)
     return numArr
 
-        
-#print(prime_factors(8))
-print(prime_factors(3490))
+# stole this from Alyssa Wendt
+# def prime_factors(n):
+#     i = 2
+#     factors = []
+#     while i * i <= n:
+#         if n % i:
+#             i += 1
+#         else:
+#             n //= i
+#             factors.append(i)
+#     if n > 1:
+#         factors.append(n)
+#     return factors
+
+print(prime_factors(6154786224))
+#print(prime_factors(243))
