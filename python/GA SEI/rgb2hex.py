@@ -1,5 +1,4 @@
 def rgb2hex(r, g, b):
-
     def tohex(num):
         if num > 255:
             num = 255

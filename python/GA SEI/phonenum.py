@@ -1,4 +1,8 @@
 def phonenum(num):
-    return f"({str(num)[0:3]}) {str(num)[3:6]}-{str(num)[6:10]}"
+    a = "".join(str(x) for x in num[0:3])
+    b = "".join(str(x) for x in num[3:6])
+    c = "".join(str(x) for x in num[6:10])
+    return f"({a}) {b}-{c}"
 
-print(phonenum(1234567890))
+
+print(phonenum([1,2,3,4,5,6,7,8,9,0]))
