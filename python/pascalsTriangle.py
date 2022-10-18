@@ -17,3 +17,4 @@ def triangle(numRows):
         addRow()
     return output
 print(triangle(1))
+
