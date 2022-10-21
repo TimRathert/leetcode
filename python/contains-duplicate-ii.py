@@ -3,10 +3,8 @@ def containsNearbyDuplicate(nums, k):
         indexI = idx
         for idx, numJ in enumerate(nums):
             indexJ = idx
-            if numI == numJ and indexI != indexJ:
-                print(indexI, indexJ)
-                if abs(indexI - indexJ) <= k:
-                    return True
+            if numI == numJ and indexI != indexJ and abs(indexI - indexJ) <= k:
+                return True
     return False
 
 
