@@ -3,8 +3,9 @@ def containsNearbyDuplicate(nums, k):
         indexI = idx
         for idx, numJ in enumerate(nums):
             indexJ = idx
-            if numI == numJ:
-                if indexI - indexJ <= k:
+            if numI == numJ and indexI != indexJ:
+                print(indexI, indexJ)
+                if abs(indexI - indexJ) <= k:
                     return True
     return False
 
@@ -12,3 +13,5 @@ def containsNearbyDuplicate(nums, k):
     
 
 print(containsNearbyDuplicate([1,2,3,1], 3))
+print(containsNearbyDuplicate([1,0,1,1], 1))
+print(containsNearbyDuplicate([1,2,3,1,2,3], 2))
