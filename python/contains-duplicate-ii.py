@@ -1,10 +1,14 @@
 def containsNearbyDuplicate(nums, k):
-    seen = {}
-    for num in nums:
-        try:
-            seen[num] += 1
-        except KeyError as error:
-            seen[num] = 1
-    print(seen)
+    for idx, numI in enumerate(nums):
+        indexI = idx
+        for idx, numJ in enumerate(nums):
+            indexJ = idx
+            if numI == numJ:
+                if indexI - indexJ <= k:
+                    return True
+    return False
 
-containsNearbyDuplicate([1,2,3,1], 3)
+
+    
+
+print(containsNearbyDuplicate([1,2,3,1], 3))
