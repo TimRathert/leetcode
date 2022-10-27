@@ -15,19 +15,20 @@ def largestOverlap(img1, img2):
     bigbigly()
     print(img1)
     count = []
-    for xaxis in range(-(len(img2)),len(img2)*2, 1):
-        overlap = 0
+    for xaxis in range(-(len(img2)),len(img2)*2, 1): 
         for yaxis in range(-(len(img2)),len(img2)*2, 1):
+            overlap = 0
             for idx, array in enumerate(img2):
                 i2 = idx
                 for index,item in enumerate(array):
                     j2 = index
 
-                    if img1[yaxis][xaxis] + img2[i2][j2] == 2:
+                    if img1[len(img2)+yaxis][len(img2)+ xaxis] + img2[i2][j2] == 2:
                         overlap += 1
             count.append(overlap)
-   #print(count)
     return max(count)
 
-print(largestOverlap( [[1,1,0],[0,1,0],[0,1,0]],[[0,0,0],[0,1,1],[0,0,1]]))
-#print(largestOverlap([[0,0,0,0,1],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]],[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[1,0,0,0,0]]))
+# runs and WORKS but time complexity is too high. Too many loops. Should probably consolidate them.
+
+#print(largestOverlap( [[1,1,0],[0,1,0],[0,1,0]],[[0,0,0],[0,1,1],[0,0,1]]))
+print(largestOverlap([[0,0,0,0,1],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]],[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[1,0,0,0,0]]))
