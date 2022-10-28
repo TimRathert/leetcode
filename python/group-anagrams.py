@@ -11,7 +11,11 @@ def groupAnagrams(strs):
                 newObj[letter]= 1
             else: newObj[letter] += 1
         letterObj.append(newObj)
-    print(letterObj[0] == letterObj[1])
+    for obj in enumerate(letterObj):
+        for i in range(len(letterObj)):
+            
+
+
     return letterObj
 
 print(groupAnagrams( ["eat","tea","tan","ate","nat","bat"]))
