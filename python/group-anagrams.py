@@ -3,21 +3,25 @@ from collections import defaultdict
 
 def groupAnagrams(strs):
     if len(strs) == 0: return []
-    letterObj = []
+    letterObj = {}
     seen = defaultdict(dict)
     output = []
+    var = 0
     for word in strs:
-        newObj = defaultdict(int)
+        newObj = defaultdict(dict)
         for letter in word:
             if not newObj[letter]:
-                newObj[letter]= 1
+                newObj[letter] = 1
             else: newObj[letter] += 1
-        letterObj.append(newObj)
-        if not seen[frozenset(newObj)]:
-            seen[frozenset(newObj)] = True
+        newObj = frozenset(newObj.items())
+        if not seen[newObj]:
+            seen[newObj] = True
+            letterObj[newObj] = var
+            var += 1
             output.append([word])
-        if seen[frozenset(newObj)]:
-            output[seen.keys(frozenset(newObj))]
+        elif seen[newObj]:
+            keys = seen.keys()
+            output[letterObj[newObj]].append(word)
 
 
     return output
@@ -25,9 +29,31 @@ def groupAnagrams(strs):
             
 
 print(groupAnagrams( ["eat","tea","tan","ate","nat","bat"]))
-
+#print(groupAnagrams(["ddddddddddg","dgggggggggg"]))
             
 
 
 
 # first word
+
+
+# def groupAnagrams(strs):
+#     if len(strs) == 0: return []
+#     letterObj = {}
+#     seen = defaultdict(int)
+#     output = []
+#     var = 0
+#     for word in strs:
+#         newObj = defaultdict(int)
+#         for letter in word:
+#             if not newObj[letter]:
+#                 newObj[letter]= 1
+#             else: newObj[letter] += 1
+#         if not seen[frozenset(newObj)]:
+#             seen[frozenset(newObj)] = True
+#             letterObj[frozenset(newObj)] = var
+#             var += 1
+#             output.append([word])
+#         elif seen[frozenset(newObj)]:
+#             keys = seen.keys()
+#             output[letterObj[frozenset(newObj)]].append(word)
