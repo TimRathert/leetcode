@@ -5,6 +5,7 @@ def isToeplitzMatrix(matrix):
     #     if matrix[m][n] != matrix[m+1][n+1]:
     #         return False
     # return True
+
     i = 0
     while i < len(matrix)-1:
         holder = matrix[i][slice(0, len(matrix[0])-1, 1)]
@@ -13,6 +14,13 @@ def isToeplitzMatrix(matrix):
             return False
         i += 1
     return True
+
+    # for loop uses more mem than while loop
+    # for i in range(len(matrix)-1):
+    #     if matrix[i][slice(0, len(matrix[0])-1, 1)]!= matrix[i+1][slice(1, len(matrix[0]), 1)]:
+    #         return False
+    # return True
+
 
         
   # runtime 88ms - faster than 95.34%
