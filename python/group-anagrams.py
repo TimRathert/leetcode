@@ -16,7 +16,9 @@ def groupAnagrams(strs):
             if not newObj[letter]:
                 newObj[letter] = 1
             else: newObj[letter] += 1
-        newObj = frozenset(newObj.items())
+        newObj = frozenset(newObj.items())  #frozenset - because dicts are mutable, they cannot be used as keys. frozenset creates an immutable copy that can be used as a key. 
+                                            # in this case, an immutable copy of newObj.items() is returned
+
         # for each of the words in strs, a newObj is created
         # the keys are the letters and the values are the number of times that letter appears
 
