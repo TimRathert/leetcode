@@ -13,15 +13,18 @@ def minMutation(start, end, bank):
                 #print(letter, start[index])
                 if letter != start[index]:
                     tally += 1
+            #print(totalChanges, len(bank),tally)
             if tally == 1:
-                #print(start, item)
+                print(start, item)
                 start = item
                 bank.remove(item)
                 totalChanges += 1
-                # continue
-            if start == end:
-                return totalChanges
+                if start == end:
+                    return totalChanges
+                else:
+                    continue
             if tally > len(bank):
+                #print('beans')
                 return -1
 
     return totalChanges
@@ -30,13 +33,14 @@ def minMutation(start, end, bank):
 
 
 
-print(minMutation("AACCGGTT","AACCGGTA",["AACCGGTA"]))
-print(minMutation("AACCGGTT","AAACGGTA",["AACCGGTA","AACCGCTA","AAACGGTA"]))
-print(minMutation("AAAAACCC","AACCCCCC",["AAAACCCC","AAACCCCC","AACCCCCC"]))
-print(minMutation("AACCTTGG","AATTCCGG",["AATTCCGG","AACCTGGG","AACCCCGG","AACCTACC"]))
-print(minMutation("AACCGGTT","AACCGGTA",[]))
-print(minMutation("AACCGGTT","AACCGGTA",["AACCGGTA","AACCGCTA","AAACGGTA"]))
-print(minMutation("AACCGGTT","AAACGGTA",["AACCGATT","AACCGATA","AAACGATA","AAACGGTA"]))
+#print(minMutation("AACCGGTT","AACCGGTA",["AACCGGTA"]))
+#print(minMutation("AACCGGTT","AAACGGTA",["AACCGGTA","AACCGCTA","AAACGGTA"]))
+#print(minMutation("AAAAACCC","AACCCCCC",["AAAACCCC","AAACCCCC","AACCCCCC"]))
+#print(minMutation("AACCTTGG","AATTCCGG",["AATTCCGG","AACCTGGG","AACCCCGG","AACCTACC"]))
+#print(minMutation("AACCGGTT","AACCGGTA",[]))
+#print(minMutation("AACCGGTT","AACCGGTA",["AACCGGTA","AACCGCTA","AAACGGTA"]))
+#print(minMutation("AACCGGTT","AAACGGTA",["AACCGATT","AACCGATA","AAACGATA","AAACGGTA"]))
+print(minMutation("AACCGGTT","AACCGCTA",["AACCGGTA","AACCGCTA","AAACGGTA"]))
 
 
 # def minMutation(start, end, bank):
