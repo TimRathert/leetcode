@@ -1,19 +1,14 @@
 def reverseVowels(s):
-    vowels = {'a':1,'e':1,'i':1,'o':1,'u':1}
-    bank = []
-    idx = []
-    s2 =''
-    for index, letter in enumerate(s):
-        s2 += letter
-        try:
-            vowels[letter]
-        except:
-            continue
-        else:
-            bank.append(letter)
-            idx.append(index)
-        while bank:
-            s2[idx.pop(0)] = bank[len(bank)-1]
-    return s2
+    s = list(s)
+    vows = set('aeiouAEIOU')
+    l, r = 0, len(s)-1
+    while l <= r:
+        while l <= r and s[l] not in vows: l += 1
+        while l <= r and s[r] not in vows: r -= 1
+        if l > r: break
+        s[l],s[r] = s[r],s[l]
+        l,r = l + 1, r-1
+    return ''.join(s)
     
 print(reverseVowels('hello'))
+print(reverseVowels('this is beans'))
