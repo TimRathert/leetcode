@@ -1,11 +1,13 @@
 def guess(number):
-    if number > 6:
+    if number > 2:
         return -1
-    elif number < 6:
+    elif number < 2:
         return 1
     else:
         return 0
 def guessNumber(n):
+    if n == 1:
+        return 1
     currentGuess = n//2
     bottom = 1
     top = n
@@ -16,10 +18,14 @@ def guessNumber(n):
         elif var == -1:
             top = currentGuess
             currentGuess = (top+bottom)//2
+            if top == currentGuess:
+                currentGuess -= 1
         else:
             bottom = currentGuess
             currentGuess = (top+bottom)//2
+            if bottom == currentGuess:
+                currentGuess += 1
 
 
 
-print(guessNumber(10))
+print(guessNumber(2))
